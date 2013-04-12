@@ -1,0 +1,8 @@
+<h1>Team Index</h1>
+<p>
+	<% @teams.each do |team| %>
+		<%= link_to "#{team.name}", team_url(team) %>
+		<%= link_to "Edit", edit_team_url(team) %>
+		<br>
+	<% end %>
+</p>

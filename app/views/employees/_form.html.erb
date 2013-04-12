@@ -1,0 +1,26 @@
+<%= form_for(@employee) do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :supervisor_id, "Assign to Overlord" %>
+	<%= f.collection_select :supervisor_id, Employee.all, :id, :name %>
+	<br>
+	<%= f.label :team_memberships, "Assign to Team" %>
+	<%= f.collection_select :team_ids, Team.all, :id, :name %>
+	<br>
+	
+	<%= f.fields_for(:employee_profile) do |ep| %>
+		<%= ep.label :height %>
+		<%= ep.number_field :height %>
+		<br> 
+		<%= ep.label :favorite_food %>
+		<%= ep.text_field :favorite_food %>
+		<br>
+
+		<%= ep.label :favorite_day %>
+		<%= ep.collection_select :favorite_day 
+  	:birthday, :salary
+	<% end %>
+
+	<%= f.submit %>
+<% end %>

@@ -1,0 +1,12 @@
+<h1><%= @team.name %></h1>
+<p>
+	<h2>Supervisor</h2>
+		<% supervisor = Employee.find(@team.supervisor_id) %>
+		<%= link_to "#{supervisor.name}", employee_url(supervisor) %> 
+	<br>
+	<h2>Members</h2>
+	<% @team.members.each do |member| %>
+		<%= link_to "#{member.name}", employee_url(member) %>
+		<br>
+	<% end %>
+</p>

@@ -1,0 +1,27 @@
+<h1><%= @employee.name %></h1>
+<%= @employee.inspect %>
+<br>
+
+<h2>Overlord</h2>
+<%= @employee.supervisor.nil? ? "Is the overlord" 
+	: (link_to "#{@employee.supervisor.name}", 
+	employee_url(@employee.supervisor)) %>
+<br>
+
+<h2>Peons</h2>
+<% @employee.subordinates.each do |peon| %>
+	<%= link_to "#{peon.name}", employee_url(peon) %>
+	<br>
+<% end %>
+
+<h2>Team Memberships</h2>
+<% @employee.teams.each do |team| %>
+	<%= link_to "#{team.name}", team_url(team) %>
+	<br>
+<% end %>
+
+<h2>Supervised Teams</h2>
+<% @employee.supervised_teams.each do |team| %>
+	<%= link_to "#{team.name}", team_url(team) %>
+	<br>
+<% end %>
