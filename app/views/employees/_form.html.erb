@@ -2,14 +2,14 @@
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 	<br>
-	<%= f.label :supervisor_id, "Assign to Overlord" %>
+	<%= f.label :supervisor_id, "Assign to Overlord" %> #REV: ominous.
 	<%= f.collection_select :supervisor_id, Employee.all, :id, :name %>
 	<br>
 	<%= f.label :team_memberships, "Assign to Team" %>
 	<%= f.collection_select :team_ids, Team.all, :id, :name %>
 	<br>
 	
-	<%= f.fields_for(:employee_profile) do |ep| %>
+	<%= f.fields_for(:employee_profile) do |ep| %> #REV: I always forget the f in front of f.fields_for....
 		<%= ep.label :height %>
 		<%= ep.number_field :height %>
 		<br> 
