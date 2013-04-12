@@ -7,12 +7,12 @@
 	<br>
 		<h2>Add Team Members</h2>
 		<% Employee.all.each do |employee| %>
-			<%= check_box_tag("team[member_ids][]",
-												employee.id,
+			<%= check_box_tag("team[member_ids][]", <!-- #REV: kewl -->
+												employee.id, <!--#REV: why's this all the way over here?!'-->
 												@team.member_ids.include?(employee.id),
 												:id => "#{employee.id}")
 			%>
-			<%= label_tag "#{employee.id}", employee.name %>
+			<%= label_tag "#{employee.id}", employee.name %> <!-- you may want to make the id more unique i.e. concatenate some more descriptive words on there. right now it's just a number-->
 		<% end %>
 		<br>
 		<br>
