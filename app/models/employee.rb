@@ -12,5 +12,5 @@ class Employee < ActiveRecord::Base
   has_many :teams, :through => :team_memberships
   has_many :supervised_teams, :class_name => 'Team', :foreign_key => :supervisor_id
   has_one :employee_profile
-  accepts_nested_attributes_for :employee_profile
+  accepts_nested_attributes_for :employee_profile #REV: looks good
 end
